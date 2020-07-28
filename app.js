@@ -6,7 +6,9 @@
 let modalBtn = document.querySelector(".modal-btn");
 let modalOverlay = document.querySelector(".modal-overlay");
 let closeBtn = document.querySelector(".close-btn");
+let backgroundPicture = document.querySelector(".hero");
 
+// ============== Event Listeners ==============
 modalBtn.addEventListener("click", () => {
   //   if (modalOverlay.classList.contains("modal-overlay")) {
   //     modalOverlay.style.visibility = "visible";
@@ -27,3 +29,19 @@ closeBtn.addEventListener("click", () => {
 modalOverlay.addEventListener("click", () => {
   modalOverlay.classList.remove("open-modal");
 });
+
+// ============== background change ==============
+let url = "https://picsum.photos/v2/list?page=2&limit=100";
+
+async function backgroundImg() {
+  let response = await fetch(url);
+
+  let responseResult = await response.json();
+
+  let randomNumber = Math.floor(Math.random() * responseResult.length);
+  let randomURL = responseResult[randomNumber].download_url;
+
+  backgroundPicture.style.background = `url(${randomURL}) center/cover no-repeat`;
+}
+
+backgroundImg();

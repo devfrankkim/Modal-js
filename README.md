@@ -8,3 +8,5 @@ Key concepts I have used and learned fromt this
 - [x] style.zIndex = -100
 - [x] classList.toggle()
 - [x] classList.remove()
+- [x] async & await 
+- [x] fetch
